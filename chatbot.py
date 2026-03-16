@@ -1,5 +1,7 @@
 import requests
 
+YES_WORDS = {"yes", "y","ya","yeah", "yep", "sure", "ok", "okay"}
+NO_WORDS = {"no", "n","na","nope", "nah", "quit", "exit"}
 
 def get_country_info(country_name):
 
@@ -85,17 +87,17 @@ def chatbot():
 
        
         while True:
-            again = input("\nDo you want to search another country? (yes/no): ").lower().strip()
+            again = input("\nDo you want to search another country? ").lower().strip()
 
-            if again in ["yes", "y"]:
+            if again in YES_WORDS:
                 break
 
-            elif again in ["no", "n", "quit", "exit"]:
+            elif again in NO_WORDS:
                 print("\nThank you for using Country Info Bot. Goodbye!")
                 return
 
             else:
-                print("Please enter 'yes' or 'no'.")
+                print("Please answer with yes or no.")
 
 if __name__ == "__main__":
     chatbot()
